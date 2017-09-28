@@ -24,4 +24,4 @@ USER groovy
 
 WORKDIR /ws
 
-ENTRYPOINT java org.codenarc.CodeNarc
+ENTRYPOINT ["java", "org.codenarc.CodeNarc"]
