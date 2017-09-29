@@ -24,4 +24,4 @@ USER groovy
 
 WORKDIR /ws
 
-ENTRYPOINT ["/usr/bin/codenarc"]
+ENTRYPOINT ["codenarc"]

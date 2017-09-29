@@ -1,2 +1,2 @@
 #!/bin/bash
-java -classpath /opt/slf4j-$SLF4J_VERSION/slf4j-api-$SLF4J_VERSION.jar:/opt/slf4j-$SLF4J_VERSION/slf4j-simple-$SLF4J_VERSION.jar:/opt/CodeNarc-$CODENARC_VERSION/CodeNarc-$CODENARC_VERSION.jar:$GROOVY_HOME/embeddable/groovy-all-$GROOVY_VERSION.jar org.codenarc.CodeNarc
+java -classpath "/opt/slf4j-$SLF4J_VERSION/slf4j-api-$SLF4J_VERSION.jar:/opt/slf4j-$SLF4J_VERSION/slf4j-simple-$SLF4J_VERSION.jar:/opt/CodeNarc-$CODENARC_VERSION/CodeNarc-$CODENARC_VERSION.jar:$GROOVY_HOME/embeddable/groovy-all-$GROOVY_VERSION.jar" org.codenarc.CodeNarc "$@"
