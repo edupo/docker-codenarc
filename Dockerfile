@@ -18,16 +18,10 @@ RUN cd /opt/CodeNarc-$CODENARC_VERSION; \
     wget http://codenarc.sourceforge.net/StarterRuleSet-AllRulesByCategory.groovy.txt \
     -O all.groovy
 
-RUN echo "java org.codenarc.CodeNarc" > /usr/bin/codenarc; \
-    chmod 755 /usr/bin/codenarc
-
-ENV CLASSPATH=/opt/slf4j-$SLF4J_VERSION/slf4j-api-$SLF4J_VERSION.jar\
-:/opt/slf4j-$SLF4J_VERSION/slf4j-simple-$SLF4J_VERSION.jar\
-:/opt/CodeNarc-$CODENARC_VERSION/CodeNarc-$CODENARC_VERSION.jar\
-:$GROOVY_HOME/embeddable/groovy-all-$GROOVY_VERSION.jar
+COPY codenarc /usr/bin
 
 USER groovy
 
 WORKDIR /ws
 
-ENTRYPOINT ["java", "org.codenarc.CodeNarc"]
+ENTRYPOINT ["codenarc"]
