@@ -3,7 +3,6 @@ FROM groovy:2.4
 USER root
 
 ENV CODENARC_VERSION=1.0
-
 ENV SLF4J_VERSION=1.7.25
 ENV GMETRICS_VERSION=1.0
 
@@ -14,6 +13,13 @@ RUN wget -qO- https://www.slf4j.org/dist/slf4j-$SLF4J_VERSION.tar.gz | tar xvz -
 
 RUN wget https://github.com/dx42/gmetrics/releases/download/v$GMETRICS_VERSION/GMetrics-$GMETRICS_VERSION.jar \
     -P /opt/GMetrics-$GMETRICS_VERSION
+
+RUN cd /opt/CodeNarc-$CODENARC_VERSION; \
+    wget http://codenarc.sourceforge.net/StarterRuleSet-AllRulesByCategory.groovy.txt \
+    -O all.groovy
+
+RUN echo "java org.codenarc.CodeNarc" > /usr/bin/codenarc; \
+    chmod 755 /usr/bin/codenarc
 
 ENV CLASSPATH=/opt/slf4j-$SLF4J_VERSION/slf4j-api-$SLF4J_VERSION.jar\
 :/opt/slf4j-$SLF4J_VERSION/slf4j-simple-$SLF4J_VERSION.jar\
