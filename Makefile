@@ -9,7 +9,7 @@ build:
 test.%: build
 
 test:
-	$(TEST_CMD) -rulesetfiles=all.groovy
+	$(TEST_CMD) -rulesetfiles=file:all.groovy
 
 test.example:
 	$(TEST_CMD) -rulesetfiles=rulesets/imports.xml,rulesets/naming.xml
