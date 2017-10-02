@@ -14,10 +14,6 @@ RUN wget -qO- https://www.slf4j.org/dist/slf4j-$SLF4J_VERSION.tar.gz | tar xvz -
 RUN wget https://github.com/dx42/gmetrics/releases/download/v$GMETRICS_VERSION/GMetrics-$GMETRICS_VERSION.jar \
     -P /opt/GMetrics-$GMETRICS_VERSION
 
-RUN cd /opt/CodeNarc-$CODENARC_VERSION; \
-    wget http://codenarc.sourceforge.net/StarterRuleSet-AllRulesByCategory.groovy.txt \
-    -O all.groovy
-
 COPY codenarc /usr/bin
 
 USER groovy
