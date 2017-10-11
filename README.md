@@ -14,7 +14,7 @@ Default user is groovy, so is recomended you run the image with you own user to
 avoid permission issues.
 
 ## As a container
-```docker run --rm -v `pwd`:/ws -u `id -u`:`id -g` --entrypoint=/bin/bash edupo/codenarc```
+```docker run --rm -v `pwd`:/ws -u `id -u`:`id -g` --entrypoint=/bin/bash -i -t edupo/codenarc```
 
 Login into the container overriding the entry point. you can execute `codenarc`
 inside as a regular program. 
